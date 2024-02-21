@@ -37,6 +37,14 @@ export interface IMany {
   category?: IOne;
 }
 
+export interface Cars {
+  id?: number;
+  categoryId?: number;
+  description?: string;
+  uzemanyag?: string;
+  szin?: string;
+}
+
 export interface IOther {
   id?: number; // PK
 }
@@ -58,6 +66,11 @@ interface IState {
     documentOld: IOther;
     documents: IOther[];
   };
+  cars: {
+    document: Cars;
+    documentOld: Cars;
+    documents: Cars[];
+  };
   app: IApp;
 }
 
@@ -75,6 +88,11 @@ export const useStore = defineStore({
       documents: [],
     },
     other: {
+      document: {},
+      documentOld: {},
+      documents: [],
+    },
+    cars: {
       document: {},
       documentOld: {},
       documents: [],
@@ -111,6 +129,22 @@ export const useStore = defineStore({
     },
 
     async many_GetAll(): Promise<void> {
+      Loading.show();
+      this.many.documents = [];
+      api
+        .get("api/advertisements")
+        .then((res) => {
+          Loading.hide();
+          if (res?.data) {
+            this.many.documents = res.data;
+          }
+        })
+        .catch((error) => {
+          ShowErrorWithNotify(error);
+        });
+    },
+
+    async cars_GetAll(): Promise<void> {
       Loading.show();
       this.many.documents = [];
       api
