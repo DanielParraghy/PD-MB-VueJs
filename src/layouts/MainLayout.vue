@@ -56,7 +56,7 @@ function toggleLanguage() {
             to="/table"
           />
           <q-route-tab
-            icon="mdi-table"
+            icon="mdi-car"
             label="cars"
             no-caps
             to="/cars"
