@@ -55,6 +55,12 @@ function toggleLanguage() {
             no-caps
             to="/table"
           />
+          <q-route-tab
+            icon="mdi-table"
+            label="cars"
+            no-caps
+            to="/cars"
+          />
         </q-tabs>
         <q-btn flat icon="mdi-comment-text-multiple" @click="toggleLanguage">
           <q-badge color="red" floating :label="locale" />
@@ -102,6 +108,13 @@ function toggleLanguage() {
             label="qTable"
             no-caps
             to="/table"
+          />
+          <q-route-tab
+            :class="{ active: $route.path === '/cars' }"
+            icon="mdi-car"
+            label="cars"
+            no-caps
+            to="/cars"
           />
       </q-tabs>
     </q-drawer>
