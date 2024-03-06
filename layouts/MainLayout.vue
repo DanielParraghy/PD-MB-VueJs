@@ -9,12 +9,9 @@ let showMenuBar = ref(true);
     <!-- Fejléc -->
     <q-header v-model="showMenuBar" class="bg-primary text-white" elevated>
       <q-toolbar>
-        <q-toolbar-title class="toolbar-title-fontsize">
-          Dolgozat minta
-        </q-toolbar-title>
+        <q-toolbar-title class="toolbar-title-fontsize"> Dolgozat minta </q-toolbar-title>
       </q-toolbar>
     </q-header>
-    <!-- A router ide (router-view) tölti be az oldalt -->
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -27,6 +24,6 @@ let showMenuBar = ref(true);
 }
 
 .toolbar-title-fontsize {
-  font-size: 30px;
+  font-size: 15px;
 }
 </style>
